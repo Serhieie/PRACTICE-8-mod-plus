@@ -76,7 +76,7 @@
   transition: all 300ms ease-in-out;
 }
 
-.li-btn {
+.li-btn:hover {
   background-color: rgb(227, 141, 29);
   color: black;
   transform: scale(1.02);
