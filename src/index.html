@@ -4,10 +4,29 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Page title</title>
-    <link rel="stylesheet" href="./sass/index.scss" />
-    <script type="module" src="./index.js"></script>
+    <link rel="stylesheet" href="./css/style.css" />
   </head>
   <body>
+    <div class="header-prt">
+      <div class="link-container">
+        <a class="link" href="./index.html">Home</a
+        ><a class="link" href="./favorite.html">Favorite</a
+        ><a class="link" href="./basket.html">Basket</a>
+      </div>
+      <div class="input-div">
+        <input
+          class="input"
+          type="text"
+          name="item searcher"
+          id="search"
+          placeholder="Введіть назву"
+        />
+        <button class="btn" type="button">Srch</button>
+      </div>
+    </div>
+    <ul class="js-container"></ul>
+
     <!-- ❗️❗️❗️ Add partials like so for every page -->
+    <script type="module" src="./index.js"></script>
   </body>
 </html>
