@@ -1,10 +1,16 @@
-//index
+import { findProduct } from './findProduct';
+import { createModal } from './createModal';
+import { common } from '../common';
 
-function onClick(evt) {
+const favoriteArr = JSON.parse(localStorage.getItem(common.KEY_FAVORITE)) ?? [];
+const basketArr = JSON.parse(localStorage.getItem(common.KEY_BASKET)) ?? [];
+const notification = document.getElementById('notification');
+
+function onClick(evt, isFavorite, isBasket) {
   evt.preventDefault();
   if (evt.target.classList.contains('js-info')) {
     const product = findProduct(evt.target);
-    createModal(product);
+    createModal(product, isFavorite, isBasket);
   }
 
   if (evt.target.classList.contains('js-basket')) {
@@ -15,6 +21,13 @@ function onClick(evt) {
     }
     basketArr.push(product);
     localStorage.setItem(common.KEY_BASKET, JSON.stringify(basketArr));
+
+    notification.style.display = 'block';
+    notification.textContent = 'Ви успішно добавили Item у Basket';
+
+    setTimeout(() => {
+      notification.style.display = 'none';
+    }, 1000);
   }
   if (evt.target.classList.contains('js-favorite')) {
     const product = findProduct(evt.target);
@@ -24,39 +37,43 @@ function onClick(evt) {
     }
     favoriteArr.push(product);
     localStorage.setItem(common.KEY_FAVORITE, JSON.stringify(favoriteArr));
-  }
-}
 
-//favorite
-
-function onClick(evt) {
-  if (evt.target.classList.contains('js-info')) {
-    const product = findProduct(evt.target);
-    createModal(product);
+    notification.style.display = 'block';
+    notification.textContent = 'Ви успішно добавили Item у Favorite';
+    setTimeout(() => {
+      notification.style.display = 'none';
+    }, 1000);
   }
-  if (evt.target.classList.contains('js-favorite')) {
+  if (evt.target.classList.contains('js-remove-btn-favorite')) {
     const product = findProduct(evt.target);
-    const indexToDelete = favorites.findIndex(item => item.id === product.id);
+    const indexToDelete = favoriteArr.findIndex(item => item.id === product.id);
     if (indexToDelete !== -1) {
-      favorites.splice(indexToDelete, 1);
+      favoriteArr.splice(indexToDelete, 1);
     }
-    localStorage.setItem(common.KEY_FAVORITE, JSON.stringify(favorites));
-  }
-}
+    localStorage.setItem(common.KEY_FAVORITE, JSON.stringify(favoriteArr));
 
-//basket
+    notification.style.display = 'block';
+    notification.textContent = 'Ви успішно видалили Item з Favorite';
 
-function onClick(evt) {
-  if (evt.target.classList.contains('js-info')) {
-    const product = findProduct(evt.target);
-    createModal(product);
+    setTimeout(() => {
+      notification.style.display = 'none';
+    }, 1000);
   }
-  if (evt.target.classList.contains('js-remove-btn')) {
+  if (evt.target.classList.contains('js-remove-btn-basket')) {
     const product = findProduct(evt.target);
-    const indexToDelete = basket.findIndex(item => item.id === product.id);
+    const indexToDelete = basketArr.findIndex(item => item.id === product.id);
     if (indexToDelete !== -1) {
-      basket.splice(indexToDelete, 1);
+      basketArr.splice(indexToDelete, 1);
     }
-    localStorage.setItem(common.KEY_BASKET, JSON.stringify(basket));
+    localStorage.setItem(common.KEY_BASKET, JSON.stringify(basketArr));
+
+    notification.style.display = 'block';
+    notification.textContent = 'Ви успішно видалили Item з корзини';
+
+    setTimeout(() => {
+      notification.style.display = 'none';
+    }, 1000);
   }
 }
+
+export { onClick, favoriteArr, basketArr };
