@@ -10,13 +10,14 @@
   gap: 50px;
   justify-content: center;
   align-items: center;
-  margin-top: 100px;
-  margin-bottom: 100px;
+  margin-top: 40px;
+  margin-bottom: 40px;
+  width: 375px;
 }
 
 .link-container .link {
   text-decoration: none;
-  font-size: 60px;
+  font-size: 32px;
   color: grey;
   transition: transform 300ms ease-in-out;
 }
@@ -30,11 +31,12 @@
   justify-content: center;
   align-items: center;
   margin-bottom: 100px;
+  width: 376px;
 }
 
 .input {
   display: block;
-  width: 600px;
+  width: 320px;
   height: 60px;
   font-size: 40px;
   padding: 0 20px;
@@ -114,7 +116,7 @@
   align-items: center;
   flex-direction: column;
   background-color: white;
-  width: 500px;
+  width: 375px;
   margin: 0;
   padding: 40px 40px;
 }
@@ -155,4 +157,64 @@ a:hover {
   display: none;
   border-radius: 4px;
   z-index: 9999;
+}
+
+@media screen and (max-width: 375px) {
+  .js-list-item-img {
+    width: 300px;
+  }
+  .js-list-item-open {
+    max-width: 300px;
+  }
+
+  .input {
+    max-width: 200px;
+  }
+  .input::placeholder {
+    font-size: 22px;
+  }
+
+  .link-container {
+    gap: 30px;
+    margin-top: 40px;
+    margin-bottom: 40px;
+    max-width: 310px;
+  }
+
+  .link-container .link {
+    font-size: 20px;
+  }
+
+  .btn-div {
+    gap: 10px;
+  }
+}
+@media screen and (min-width: 768px) {
+  .js-list-item-img {
+    width: 500px;
+  }
+  .js-list-item-open {
+    width: 500px;
+  }
+
+  .link-container {
+    gap: 40px;
+    margin-top: 60px;
+    margin-bottom: 60px;
+    width: 100%;
+  }
+}
+@media screen and (min-width: 1440px) {
+  .js-list-item-img {
+    width: 600px;
+  }
+  .input {
+    width: 600px;
+  }
+
+  .link-container {
+    gap: 50px;
+    margin-top: 100px;
+    margin-bottom: 100px;
+  }
 }

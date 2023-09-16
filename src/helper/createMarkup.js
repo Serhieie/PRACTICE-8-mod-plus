@@ -29,7 +29,7 @@ function createMarkup(arr, container, isFavorite, isBasket) {
       })
       .join('');
   } else {
-    markup = `<li class="js-list-item"><img src="https://www.esri.com/arcgis-blog/wp-content/uploads/2018/01/fav-3.png" alt="plug" width="500"></li>`;
+    markup = `<li class="js-list-item"><img class="js-list-item-img" src="https://www.esri.com/arcgis-blog/wp-content/uploads/2018/01/fav-3.png" alt="plug"></li>`;
   }
   container.innerHTML = markup;
 }
