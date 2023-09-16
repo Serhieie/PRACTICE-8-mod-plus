@@ -5,6 +5,7 @@ import { findProduct } from './helper/findProduct';
 import { common } from './common';
 import { createMarkup } from './helper/createMarkup';
 import { createModal } from './helper/createModal';
+import throttle from 'lodash/throttle';
 
 const container = document.querySelector('.js-list');
 const search = document.querySelector('.js-search');
@@ -15,13 +16,17 @@ const deleteFavBtn = document.querySelector('.js-delete-fav');
 const favoriteArr = JSON.parse(localStorage.getItem(common.KEY_FAVORITE)) ?? [];
 const basketArr = JSON.parse(localStorage.getItem(common.KEY_BASKET)) ?? [];
 
-createMarkup(instruments, container);
-container.addEventListener('click', onClick);
-search.addEventListener('input', onSearch);
-
 function onSearch(evt) {
-  console.log(evt);
+  if (evt.data === favoriteArr.name) {
+    console.log('Here is 0');
+  }
+  console.log(evt.data);
 }
+const throttleOnSerach = throttle(onSearch, 1000);
+
+createMarkup(instruments, container, false, false);
+container.addEventListener('click', onClick);
+search.addEventListener('input', throttleOnSerach);
 
 function onClick(evt) {
   evt.preventDefault();
@@ -34,9 +39,8 @@ function onClick(evt) {
     const product = findProduct(evt.target);
     const inStorage = basketArr.some(({ id }) => id === product.id);
     if (inStorage) {
-      return;
+      console.log('+ 1 more item', product);
     }
-
     basketArr.push(product);
     localStorage.setItem(common.KEY_BASKET, JSON.stringify(basketArr));
   }

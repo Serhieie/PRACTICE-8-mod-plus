@@ -7,7 +7,7 @@ import { createModal } from './helper/createModal';
 const container = document.querySelector('.js-list');
 const favorites = JSON.parse(localStorage.getItem(common.KEY_FAVORITE)) ?? [];
 
-createMarkup(favorites, container);
+createMarkup(favorites, container, true, false);
 
 const deleteFavoriteBtns = document.querySelectorAll('.js-favorite');
 deleteFavoriteBtns.forEach(btn => {
