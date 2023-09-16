@@ -3,9 +3,8 @@ import { instruments } from './helper/products';
 import { findProduct } from './helper/findProduct';
 import { createMarkup } from './helper/createMarkup';
 import { createModal } from './helper/createModal';
-import { onClick, basketArr } from './helper/onClick';
+import { onClick, basketArr, container } from './helper/onClick';
 
-const container = document.querySelector('.js-list');
 const quantity = document.querySelector('.js-input-value');
 const totalSpan = document.querySelector('.total-span');
 

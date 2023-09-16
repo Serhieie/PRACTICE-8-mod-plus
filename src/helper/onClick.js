@@ -1,10 +1,12 @@
 import { findProduct } from './findProduct';
 import { createModal } from './createModal';
 import { common } from '../common';
+import { createMarkup } from './createMarkup';
 
 const favoriteArr = JSON.parse(localStorage.getItem(common.KEY_FAVORITE)) ?? [];
 const basketArr = JSON.parse(localStorage.getItem(common.KEY_BASKET)) ?? [];
 const notification = document.getElementById('notification');
+const container = document.querySelector('.js-list');
 
 function onClick(evt, isFavorite, isBasket) {
   evt.preventDefault();
@@ -12,7 +14,9 @@ function onClick(evt, isFavorite, isBasket) {
     const product = findProduct(evt.target);
     createModal(product, isFavorite, isBasket);
   }
-
+  if (createModal) {
+    console.log('true');
+  }
   if (evt.target.classList.contains('js-basket')) {
     const product = findProduct(evt.target);
     const inStorage = basketArr.some(({ id }) => id === product.id);
@@ -52,6 +56,8 @@ function onClick(evt, isFavorite, isBasket) {
     }
     localStorage.setItem(common.KEY_FAVORITE, JSON.stringify(favoriteArr));
 
+    createMarkup(favoriteArr, container, true, false);
+
     notification.style.display = 'block';
     notification.textContent = 'Ви успішно видалили Item з Favorite';
 
@@ -67,6 +73,8 @@ function onClick(evt, isFavorite, isBasket) {
     }
     localStorage.setItem(common.KEY_BASKET, JSON.stringify(basketArr));
 
+    createMarkup(basketArr, container, false, true);
+
     notification.style.display = 'block';
     notification.textContent = 'Ви успішно видалили Item з корзини';
 
@@ -76,4 +84,4 @@ function onClick(evt, isFavorite, isBasket) {
   }
 }
 
-export { onClick, favoriteArr, basketArr };
+export { onClick, favoriteArr, basketArr, container };
