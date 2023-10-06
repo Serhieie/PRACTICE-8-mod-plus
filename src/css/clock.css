@@ -1,0 +1,94 @@
+body {
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.link-container .link {
+  text-decoration: none;
+  font-size: 18px;
+  color: black;
+  transition: transform 300ms ease-in-out;
+}
+
+.calendar {
+  display: flex;
+  gap: 60px;
+  align-items: center;
+  justify-content: center;
+}
+
+.date-style {
+  display: flex;
+  font-size: 36px;
+  gap: 15px;
+  background-color: lightslategray;
+  color: white;
+  padding: 10px;
+  border-radius: 4px;
+}
+
+.digital-clock {
+  margin: 0 auto;
+  margin-top: 50px;
+  font-size: 36px;
+  text-align: center;
+  width: 200px;
+  background-color: lightslategray;
+  color: white;
+  padding-top: 10px;
+  border-radius: 4px;
+  height: 50px;
+  margin-bottom: 100px;
+}
+
+.clock {
+  width: 290px;
+  height: 290px;
+  background-image: url(/src/images/pi5oLon5T.png);
+  background-color: rgba(132, 129, 129, 0);
+  background-size: cover;
+  background-repeat: no-repeat;
+  position: relative;
+  left: 40%;
+  margin-bottom: 100px;
+}
+
+.clock-arrow {
+  position: absolute;
+  background-color: black;
+  transform-origin: bottom;
+  transform: translate(-50%);
+  border-top-right-radius: 10px;
+  border-top-left-radius: 10px;
+}
+
+.clock-center {
+  position: absolute;
+  background-color: black;
+  top: 46%;
+  left: 48%;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+}
+.clock-seconds__arrow {
+  bottom: 50%;
+  left: 50%;
+  width: 2px;
+  height: 48%;
+  /* transition: all 300ms ease-in-out; */
+}
+.clock-minutes__arrow {
+  bottom: 50%;
+  left: 50%;
+  width: 5px;
+  height: 38%;
+  transition: all 300ms ease-in-out;
+}
+.clock-hours__arrow {
+  bottom: 50%;
+  left: 50%;
+  width: 7px;
+  height: 30%;
+  transition: all 300ms ease-in-out;
+}

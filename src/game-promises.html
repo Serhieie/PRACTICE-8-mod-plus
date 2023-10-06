@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/game-promises.css" />
+    <link rel="stylesheet" href="./css/style.css" />
+  </head>
+  <body>
+    <div class="link-container">
+      <a class="link" href="./index.html">Back to Home</a>
+      <a class="link" href="./clock.html">Clock</a>
+    </div>
+    <button class="js-race-btn">Наступний забіг</button>
+    <hr />
+    <p class="winner"></p>
+    <p class="progress"></p>
+    <hr />
+    <table class="js-result-table">
+      <thead>
+        <tr>
+          <th>Забіг</th>
+          <th>Переможець</th>
+          <th>Час</th>
+        </tr>
+      </thead>
+      <tbody class="tbody"></tbody>
+    </table>
+    <button class="js-start">Start Game</button>
+    <div class="js-container">
+      <div class="item"><span class="text slide-in-blurred-top"></span></div>
+      <div class="item"><span class="text slide-in-blurred-top"></span></div>
+      <div class="item"><span class="text slide-in-blurred-top"></span></div>
+    </div>
+    <script type="module" src="./game-promises.js"></script>
+  </body>
+</html>

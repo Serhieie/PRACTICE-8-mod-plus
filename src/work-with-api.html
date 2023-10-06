@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/work-with-api.css" />
+    <link rel="stylesheet" href="./css/style.css" />
+  </head>
+  <body>
+    <div class="link-container">
+      <a class="link" href="./index.html">Home</a>
+      <a class="link" href="./clock.html">Clock</a>
+    </div>
+
+    <form action="submit" class="js-form">
+      <input class="input" type="text" name="query" />
+      <select class="select btn" name="days">
+        <option value="1">1 день</option>
+        <option value="3">3 дні</option>
+        <option value="5">5 днів</option>
+        <option value="7">7 днів</option>
+        <option value="14">14 днів</option>
+        <button class="button btn" type="submit">Надати прогноз</button>
+      </select>
+    </form>
+    <ul class="js-list-api"></ul>
+    <script type="module" src="./work-with-api.js"></script>
+  </body>
+</html>

@@ -14,9 +14,6 @@ function onClick(evt, isFavorite, isBasket) {
     const product = findProduct(evt.target);
     createModal(product, isFavorite, isBasket);
   }
-  if (createModal) {
-    console.log('true');
-  }
   if (evt.target.classList.contains('js-basket')) {
     const product = findProduct(evt.target);
     const inStorage = basketArr.some(({ id }) => id === product.id);
